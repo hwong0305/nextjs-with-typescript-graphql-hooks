@@ -4,9 +4,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "codegen": "graphql-let",
-    "dev": "yarn codegen && next",
-    "build": "yarn codegen && next build",
+    "dev": "next",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
@@ -27,11 +26,7 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@graphql-codegen/typescript": "^1.9.1",
-    "@graphql-codegen/typescript-operations": "^1.9.1",
-    "@graphql-codegen/typescript-react-apollo": "^1.9.1",
     "@types/react": "^16.9.17",
-    "graphql-let": "0.x",
     "typescript": "^3.7.4"
   }
 }
