@@ -1,24 +1,30 @@
-import withApollo from '../lib/with-apollo'
-import Link from 'next/link'
-import { useViewerQuery } from '../lib/viewer.graphql'
+import { useQuery } from '@apollo/react-hooks';
+import withApollo from '../lib/withApollo';
+import { GET_CONTINENTS } from '../lib/queries';
+
+type Continent = {
+  code: string;
+  name: string;
+};
 
 const Index = () => {
-  const { data } = useViewerQuery()
-
+  const { data } = useQuery(GET_CONTINENTS);
   if (data) {
-    const { viewer } = data
+    const { continents } = data as { continents: Continent[] };
     return (
       <div>
-        You're signed in as {viewer.name} and you're {viewer.status} goto{' '}
-        <Link href="/about">
-          <a>static</a>
-        </Link>{' '}
-        page.
+        <h1>Continents</h1>
+        <ul>
+          {continents.map(e => (
+            <li key={e.code}>
+              <a href={`/continents/${e.code}`}>{e.name}</a>
+            </li>
+          ))}
+        </ul>
       </div>
-    )
+    );
   }
+  return <h1>Continents</h1>;
+};
 
-  return <div>...</div>
-}
-
-export default withApollo(Index)
+export default withApollo(Index);
