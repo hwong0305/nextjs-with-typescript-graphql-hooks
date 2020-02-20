@@ -2,7 +2,7 @@
   "name": "with-typescript-graphql",
   "version": "0.1.0",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
